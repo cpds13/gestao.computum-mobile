@@ -1008,9 +1008,6 @@ function nav(view) {
     view = 'manual';
   }
 
-  // No mobile, selecionar uma página NÃO altera o estado da sidebar.
-  // A sidebar só é recolhida/aberta pelos controles próprios: « e ☰.
-
   if (state.view === view && !renderEmAndamento) {
     activeNav();
     return;

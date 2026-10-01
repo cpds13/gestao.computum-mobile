@@ -311,13 +311,14 @@ Administradores podem corrigir valores de solicitações concluídas por meio de
 No mobile, o menu lateral permanece aberto durante a navegação. Ao ser recolhido, desaparece completamente e libera toda a largura da tela. O botão `☰` do topbar reabre o menu.
 
 
-## V69 — 01/10/2026
-
-- Ajuste do menu mobile: selecionar Dashboard ou qualquer outra área não recolhe a sidebar. A sidebar permanece aberta até o usuário tocar no botão « Recolher. A abertura continua sendo feita exclusivamente pelo botão ☰ quando a sidebar está recolhida.
-
 ## V68 — 01/10/2026
 
 - O Dashboard passa a ser apresentado inicialmente com o menu mobile recolhido, liberando toda a área da tela.
 - O botão `☰` do topbar continua sendo o controle para abrir o menu.
 - Ao selecionar o Dashboard pelo menu mobile, o menu é recolhido novamente, inclusive quando o Dashboard já estiver selecionado.
 - As demais páginas e o comportamento desktop permanecem inalterados.
+
+
+## V69 — 01/10/2026
+
+A V69 parte integralmente da V68. A única alteração funcional é manter o menu mobile recolhido ao iniciar, abrindo pelo botão ☰ e permanecendo aberto ao navegar entre as páginas; o menu só desaparece quando o botão « Recolher é acionado. Nenhuma outra alteração funcional foi feita.

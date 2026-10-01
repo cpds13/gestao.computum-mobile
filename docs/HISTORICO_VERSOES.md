@@ -71,13 +71,14 @@
 - A mudança é restrita ao comportamento mobile; desktop e demais funcionalidades permanecem inalterados.
 
 
-## V69 — 01/10/2026
-
-- Menu mobile: a navegação entre Dashboard e demais áreas não altera o estado da sidebar. O menu permanece aberto após a seleção e só é recolhido pelo botão próprio. Quando recolhido, volta a ser aberto pelo botão ☰.
-
 ## V68 — 01/10/2026
 
 - O Dashboard mobile passa a iniciar com a barra lateral recolhida.
 - O botão `☰` abre o menu quando necessário.
 - Ao selecionar o Dashboard no menu, a barra lateral é recolhida novamente, inclusive se a tela atual já for o Dashboard.
 - Nenhuma alteração intencional no comportamento desktop.
+
+
+## V69 — 01/10/2026
+
+Ajuste exclusivamente na navegação mobile sobre a base V68: o menu inicia recolhido; o botão ☰ abre o menu; a seleção de qualquer página não recolhe o menu; somente o botão « Recolher fecha a barra lateral. Layout e demais comportamentos da V68 foram preservados.
