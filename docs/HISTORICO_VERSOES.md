@@ -69,3 +69,15 @@
 - O botão `☰` existente no topbar volta a ser o controle para reabrir o menu.
 - O botão interno `«` permanece como controle para recolher o menu.
 - A mudança é restrita ao comportamento mobile; desktop e demais funcionalidades permanecem inalterados.
+
+
+## V69 — 01/10/2026
+
+- Menu mobile: a navegação entre Dashboard e demais áreas não altera o estado da sidebar. O menu permanece aberto após a seleção e só é recolhido pelo botão próprio. Quando recolhido, volta a ser aberto pelo botão ☰.
+
+## V68 — 01/10/2026
+
+- O Dashboard mobile passa a iniciar com a barra lateral recolhida.
+- O botão `☰` abre o menu quando necessário.
+- Ao selecionar o Dashboard no menu, a barra lateral é recolhida novamente, inclusive se a tela atual já for o Dashboard.
+- Nenhuma alteração intencional no comportamento desktop.
