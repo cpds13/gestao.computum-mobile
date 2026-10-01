@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#172B46" />
+  <meta
+    name="description"
+    content="Gestão Computum — controle de solicitações, cálculos judiciais, retrabalhos e financeiro."
+  />
+  <title>Gestão Computum</title>
+  <link rel="stylesheet" href="styles.css?v=46" />
+</head>
+
+<body>
+  <div id="appShell" class="app-shell">
+
+    <aside class="sidebar" id="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark"><span></span></div>
+
+        <div>
+          <strong>COMPUTUM</strong>
+          <small>Gestão de Cálculos</small>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegação principal">
+
+        <button class="nav-item active" data-view="dashboard">
+          <span>⌂</span>
+          Dashboard
+        </button>
+
+        <button class="nav-item" data-view="producao">
+          <span>∑</span>
+          Minha produção
+        </button>
+
+        <button class="nav-item" data-view="solicitacoes">
+          <span>▣</span>
+          Solicitações
+        </button>
+
+        <button class="nav-item" data-view="advogados">
+          <span>♙</span>
+          Advogados
+        </button>
+
+        <button class="nav-item" data-view="clientes">
+          <span>♧</span>
+          Clientes
+        </button>
+
+        <button class="nav-item" data-view="processos">
+          <span>§</span>
+          Processos
+        </button>
+
+        <button class="nav-item" data-view="calculistas">
+          <span>∑</span>
+          Calculistas
+        </button>
+
+        <button class="nav-item" data-view="usuarios">
+          <span>♙</span>
+          Usuários
+        </button>
+
+        <button class="nav-item" data-view="financeiro">
+          <span>R$</span>
+          Financeiro
+        </button>
+
+        <button class="nav-item" data-view="relatorios">
+          <span>◫</span>
+          Relatórios
+        </button>
+
+        <button class="nav-item" data-view="manual">
+          <span>?</span>
+          Manual
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <button
+          class="nav-item"
+          id="driveGestaoButton"
+          data-drive-gestao
+          title="Abrir pasta Gestão no Google Drive"
+          style="display:none"
+        >
+          <span>↗</span>
+          Pasta Gestão
+        </button>
+
+        <button class="nav-item" data-view="configuracoes">
+          <span>⚙</span>
+          Configurações
+        </button>
+
+        <div class="user-mini">
+          <div class="avatar" id="sidebarAvatar">U</div>
+
+          <div>
+            <strong id="sidebarUserName">Usuário</strong>
+            <small id="sidebarUserProfile">Carregando...</small>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <button
+          class="icon-button mobile-only"
+          id="menuBtn"
+          aria-label="Abrir menu"
+        >
+          ☰
+        </button>
+
+        <div class="breadcrumb" id="breadcrumb">
+          Dashboard
+        </div>
+
+        <div class="top-actions">
+
+          <button
+            class="icon-button"
+            title="Notificações"
+          >
+            ♢
+            <i class="notification-dot"></i>
+          </button>
+
+          <button
+            class="profile-button"
+            id="profileBtn"
+          >
+            <span
+              class="avatar small"
+              id="topbarAvatar"
+            >
+              U
+            </span>
+
+            <span
+              class="desktop-only"
+              id="topbarUserName"
+            >
+              Usuário
+            </span>
+
+            ⌄
+          </button>
+
+        </div>
+
+      </header>
+
+      <div id="content" class="content"></div>
+
+    </main>
+
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <div id="modalRoot"></div>
+
+  <div id="drawerRoot"></div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Configuração do cliente Supabase -->
+  <script src="supabase-client.js"></script>
+
+  <!-- Aplicação -->
+  <script src="app.js?v=46"></script>
+
+</body>
+</html>
