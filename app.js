@@ -6084,15 +6084,26 @@ async function sairDoSistema() {
 }
 
 function prepararNavegacaoMobile() {
-  const button = $('#sidebarCollapseBtn');
-  if (!button || button.dataset.eventsReady) return;
+  const collapseButton = $('#sidebarCollapseBtn');
+  const menuButton = $('#menuBtn');
 
-  button.dataset.eventsReady = 'true';
-  button.addEventListener('click', event => {
-    event.preventDefault();
-    event.stopPropagation();
-    alternarSidebarMobile();
-  });
+  if (collapseButton && !collapseButton.dataset.eventsReady) {
+    collapseButton.dataset.eventsReady = 'true';
+    collapseButton.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      alternarSidebarMobile();
+    });
+  }
+
+  if (menuButton && !menuButton.dataset.eventsReady) {
+    menuButton.dataset.eventsReady = 'true';
+    menuButton.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      definirSidebarMobileRecolhida(false);
+    });
+  }
 }
 
 function initEventDelegation() {

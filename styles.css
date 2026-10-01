@@ -1262,52 +1262,25 @@ textarea:focus {
     display: flex;
   }
 
+  /*
+   * V67 — quando recolhido, o menu desaparece por completo.
+   * O acesso para reabri-lo passa a ser feito pelo botão ☰ do topbar.
+   */
   .app-shell.mobile-sidebar-collapsed .sidebar {
-    width: var(--mobile-sidebar-collapsed);
-  }
-
-  .app-shell.mobile-sidebar-collapsed .brand {
-    justify-content: center;
+    width: 0;
     padding-left: 0;
     padding-right: 0;
+    box-shadow: none;
+    pointer-events: none;
+    overflow: hidden;
   }
 
-  .app-shell.mobile-sidebar-collapsed .brand > div:last-child {
-    display: none;
+  /* O botão ☰ volta a ser o único controle de abertura do menu. */
+  .app-shell.mobile-sidebar-collapsed #menuBtn {
+    display: inline-flex;
   }
 
   .app-shell.mobile-sidebar-collapsed .sidebar-collapse-btn {
-    justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .app-shell.mobile-sidebar-collapsed .sidebar-collapse-btn .collapse-label {
-    display: none;
-  }
-
-  .app-shell.mobile-sidebar-collapsed .sidebar-collapse-btn > span:first-child {
-    transform: rotate(180deg);
-  }
-
-  .app-shell.mobile-sidebar-collapsed .nav-item {
-    justify-content: center;
-    padding-left: 8px;
-    padding-right: 8px;
-    font-size: 0;
-  }
-
-  .app-shell.mobile-sidebar-collapsed .nav-item span {
-    font-size: 14px;
-  }
-
-  .app-shell.mobile-sidebar-collapsed .user-mini {
-    justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .app-shell.mobile-sidebar-collapsed .user-mini > div:last-child {
     display: none;
   }
 
