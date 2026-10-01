@@ -60,3 +60,4 @@
 - Garantida área de toque mínima nos itens do menu.
 - Corrigido o comportamento responsivo de modais/drawers e formulários no mobile, evitando overflow horizontal e garantindo uma coluna nos grids.
 - Desktop e demais módulos não foram alterados intencionalmente.
+\n\n## V66 — 01/10/2026\n\n- O menu mobile passou a permanecer fixo e visível durante a navegação.\n- A área selecionada continua sendo renderizada normalmente por trás do menu, sem overlay de captura de toque.\n- Removidos os fechamentos automáticos por `pointerdown`, `touchstart` e `click` que interferiam na navegação mobile.\n- Adicionado botão `«` para recolher o menu; quando recolhido, o mesmo controle passa a permitir sua expansão.\n- No estado recolhido, o menu mantém os ícones e libera praticamente toda a área da tela para o conteúdo.\n- A alteração é restrita ao comportamento mobile; desktop e demais funcionalidades permanecem com a estrutura anterior.\n

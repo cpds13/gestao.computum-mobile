@@ -970,24 +970,33 @@ let renderEmAndamento = false;
 let renderPendente = false;
 let queryRenderTimer = null;
 
-function fecharSidebarMobile() {
+function definirSidebarMobileRecolhida(recolhida) {
   if (window.innerWidth >= 801) return;
-  const sidebar = $('#sidebar');
-  if (!sidebar) return;
 
-  // Fecha de forma explícita para que a barra não permaneça visível
-  // quando a navegação mantém a mesma view (ex.: Dashboard).
-  sidebar.classList.remove('open');
-  sidebar.setAttribute('aria-hidden', 'true');
-  sidebar.style.transform = 'translateX(-100%)';
+  const shell = $('#appShell');
+  const button = $('#sidebarCollapseBtn');
+  if (!shell) return;
+
+  shell.classList.toggle('mobile-sidebar-collapsed', recolhida);
+
+  if (button) {
+    button.setAttribute('aria-label', recolhida ? 'Expandir menu' : 'Recolher menu');
+    button.setAttribute('title', recolhida ? 'Expandir menu' : 'Recolher menu');
+  }
+}
+
+function alternarSidebarMobile() {
+  if (window.innerWidth >= 801) return;
+  const shell = $('#appShell');
+  if (!shell) return;
+
+  definirSidebarMobileRecolhida(
+    !shell.classList.contains('mobile-sidebar-collapsed')
+  );
 }
 
 function nav(view) {
   if (!view || !views[view]) view = 'dashboard';
-
-  // Em dispositivos móveis, qualquer navegação fecha a barra lateral,
-  // inclusive quando o usuário toca novamente na view atual.
-  fecharSidebarMobile();
 
   if (isAdministrador()) {
     // administrador pode acessar todas as áreas
@@ -6074,23 +6083,16 @@ async function sairDoSistema() {
   mostrarLogin();
 }
 
-// No mobile, o fechamento da barra lateral acontece no primeiro evento de
-// interação com qualquer item de navegação. pointerdown/touchstart são usados
-// além do click para evitar que a renderização ou o ciclo de toque do navegador
-// reabra/mantenha a barra visível, inclusive em Dashboard e Solicitações.
-if (!document.documentElement.dataset.mobileNavCloseReady) {
-  document.documentElement.dataset.mobileNavCloseReady = 'true';
+function prepararNavegacaoMobile() {
+  const button = $('#sidebarCollapseBtn');
+  if (!button || button.dataset.eventsReady) return;
 
-  const fecharAoInteragirComMenu = event => {
-    if (window.innerWidth >= 801) return;
-    const button = event.target.closest('.nav-item[data-view]');
-    if (!button) return;
-    fecharSidebarMobile();
-  };
-
-  document.addEventListener('pointerdown', fecharAoInteragirComMenu, true);
-  document.addEventListener('touchstart', fecharAoInteragirComMenu, { capture: true, passive: true });
-  document.addEventListener('click', fecharAoInteragirComMenu, true);
+  button.dataset.eventsReady = 'true';
+  button.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    alternarSidebarMobile();
+  });
 }
 
 function initEventDelegation() {
@@ -6507,23 +6509,7 @@ document.addEventListener('keydown', event => {
   abrirModalAjusteFinanceiro(r);
 });
 
-$('#menuBtn').addEventListener(
-  'click',
-  () => {
-    const sidebar = $('#sidebar');
-    if (!sidebar) return;
-
-    const abrindo = !sidebar.classList.contains('open');
-    sidebar.classList.toggle('open', abrindo);
-    sidebar.setAttribute('aria-hidden', abrindo ? 'false' : 'true');
-    if (abrindo) {
-      sidebar.style.transform = '';
-    } else {
-      sidebar.style.transform = 'translateX(-100%)';
-    }
-  }
-);
-
+prepararNavegacaoMobile();
 initEventDelegation();
 
 (async function iniciarAplicacao() {
